@@ -8,6 +8,7 @@ $(document).ready(function () {
             $("header").removeClass("scrolled");
 
         }
+
     });
 
     $("#faqs .faq-item .faq-title").click(function (e) {
@@ -28,8 +29,14 @@ $(document).ready(function () {
 
     // Transition kısmını engellemeye yarıyor.
     $("body").addClass("page-loaded");
+
 });
 
+const lightbox = GLightbox({
+    touchNavigation: true,
+    loop: true,
+    autoplayVideos: true
+});
 //#####Swiper Örneği######
 
 
