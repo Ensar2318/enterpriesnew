@@ -1,0 +1,185 @@
+// Colors
+@each $color, $code in $colors {
+    /* Text Colors */
+
+    .text-#{$color} {
+        color: #{$code} !important;
+    }
+
+    /* Background Colors */
+
+    .bg-#{$color} {
+        background-color: #{$code} !important;
+    }
+
+    /* Border Colors */
+
+    .border-#{$color} {
+        border-color: #{$code} !important;
+    }
+}
+
+// Text Alignments
+
+$alingments: ("left", "center", "right", "justify");
+
+@each $alignment in $alingments {
+    .text-#{$alignment} {
+        text-align: #{$alignment} !important;
+    }
+}
+
+@each $alignment in $alingments {
+    @each $breakpoint, $value in $breakpoints {
+        .text-#{$breakpoint}-#{$alignment} {
+            @include media-up($breakpoint) {
+                text-align: #{$alignment} !important;
+            }
+        }
+    }
+}
+
+/* Font Weights */
+$fontWeights: (300, 400, 500, 600, 700, 800);
+
+@each $fontWeight in $fontWeights {
+    .font-#{$fontWeight} {
+        font-weight: #{$fontWeight};
+    }
+}
+
+/* Font sizes */
+$fontSizes: (16, 18, 20, 24, 28, 32, 40, 44, 48, 60, 64, 72);
+
+@each $fontSize in $fontSizes {
+    .fs-#{$fontSize} {
+        font-size: #{$fontSize}px;
+    }
+}
+
+@each $breakpoint in map-keys($breakpoints) {
+    @include media-up($breakpoint) {
+        @each $fontSizes in $fontSizes {
+            .fs-#{$breakpoint}-#{$fontSizes} {
+                font-size: #{$fontSizes}px;
+            }
+        }
+    }
+}
+
+/* Gaps sizes */
+$gapSizes: (5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55);
+
+@each $gapSize in $gapSizes {
+    .gap-#{$gapSize} {
+        gap: #{$gapSize}px;
+    }
+}
+
+@each $breakpoint in map-keys($breakpoints) {
+    @include media-up($breakpoint) {
+        @each $gapSize in $gapSizes {
+            .gap-#{$breakpoint}-#{$gapSize} {
+                font-size: #{$gapSize}px;
+            }
+        }
+    }
+}
+
+/* Borders */
+$positions: ("top", "right", "bottom", "left");
+
+@each $position in $positions {
+    .border-#{$position} {
+        border-#{$position}: 1px solid var(--color-gray);
+    }
+}
+
+// Border Radius
+
+@for $i from 1 through 5 {
+    .border-radius-#{$i} {
+        border-radius: #{$i}rem !important;
+    }
+}
+
+// Width and Height
+
+$sizes: ("10", "20", "30", "40", "50", "60", "70", "80", "90", "100");
+
+@each $size in $sizes {
+    .w-#{$size} {
+        width: #{$size}#{"%"} !important;
+    }
+    .h-#{$size} {
+        height: #{$size}#{"%"} !important;
+    }
+}
+
+// Margins and paddigns
+@each $size in $sizes {
+    .mt-#{$size} {
+        margin-top: #{$size}#{"px"};
+    }
+    .mb-#{$size} {
+        margin-bottom: #{$size}#{"px"};
+    }
+    .ml-#{$size} {
+        margin-left: #{$size}#{"px"};
+    }
+    .mr-#{$size} {
+        margin-right: #{$size}#{"px"};
+    }
+
+    .pt-#{$size} {
+        padding-top: #{$size}#{"px"};
+    }
+    .pb-#{$size} {
+        padding-bottom: #{$size}#{"px"};
+    }
+    .pl-#{$size} {
+        padding-left: #{$size}#{"px"};
+    }
+    .pr-#{$size} {
+        padding-right: #{$size}#{"px"};
+    }
+}
+
+@each $breakpoint in map-keys($breakpoints) {
+    @include media-up($breakpoint) {
+        @each $size in $sizes {
+            .mt-#{$breakpoint}-#{$size} {
+                margin-top: #{$size}#{"px"};
+            }
+            .mb-#{$breakpoint}-#{$size} {
+                margin-bottom: #{$size}#{"px"};
+            }
+            .ml-#{$breakpoint}-#{$size} {
+                margin-left: #{$size}#{"px"};
+            }
+            .mr-#{$breakpoint}-#{$size} {
+                margin-right: #{$size}#{"px"};
+            }
+
+            .pt-#{$breakpoint}-#{$size} {
+                padding-top: #{$size}#{"px"};
+            }
+            .pb-#{$breakpoint}-#{$size} {
+                padding-bottom: #{$size}#{"px"};
+            }
+            .pl-#{$breakpoint}-#{$size} {
+                padding-left: #{$size}#{"px"};
+            }
+            .pr-#{$breakpoint}-#{$size} {
+                padding-right: #{$size}#{"px"};
+            }
+        }
+    }
+}
+
+.position-relative {
+    position: relative;
+}
+.bg-primary-gradient {
+    background: linear-gradient(to bottom, #3c272b, #7c6e71);
+}

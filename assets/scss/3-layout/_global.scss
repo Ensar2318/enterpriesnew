@@ -1,0 +1,15 @@
+section {
+    padding: 100px 0;
+    @include media-down("lg") {
+        padding: 50px 0;
+    }
+}
+
+.smContainer {
+    max-width: 1200px;
+    padding: 0 20px;
+    margin: auto;
+}
+.overflow-hidden {
+    overflow: hidden;
+}

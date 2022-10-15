@@ -1,0 +1,60 @@
+footer {
+    padding: 30px 0;
+    transition: 0.4s;
+    background-color: $primary;
+
+    .side {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        .phone {
+            font: 600 16px $poppins;
+            color: $white;
+            transition: $transition;
+            &:hover {
+                color: rgba($white, $alpha: 0.5);
+            }
+        }
+        .socials {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            a {
+                color: $white;
+                font-size: 32px;
+                transition: $transition;
+                &:hover {
+                    color: rgba($white, $alpha: 0.5);
+                }
+            }
+        }
+    }
+}
+
+@include media-down("lg") {
+    header {
+        padding: 20px 0;
+    }
+}
+
+@include media-down("sm") {
+    footer {
+        .logo {
+            width: 150px;
+        }
+        .side {
+            gap: 10px;
+            flex-direction: column-reverse;
+            .phone {
+                font: 600 14px $poppins;
+            }
+            .socials {
+                gap: 10px;
+                a {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}
